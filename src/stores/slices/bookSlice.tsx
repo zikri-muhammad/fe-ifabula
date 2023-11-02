@@ -1,6 +1,8 @@
 import axios from "@/library/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppDispatch, RootState } from "../store";
+import { toast } from "react-toastify";
+import { error } from "console";
 
 
 const bookSlice = createSlice({
@@ -37,7 +39,9 @@ export const updateBook = createAsyncThunk<any, number, { state: RootState, disp
     const detail: any = getState().books.detail;
     await axios.put(`/book/${detail?.id}`, payload).then(({ data }) => {
         dispatch(getBook());
+        toast.success("success")
     }).catch(({ response }) => {
+        toast.error(response.data.errMessage)
         console.log(response?.data)
     })
 });
@@ -54,8 +58,10 @@ export const deleteBook = createAsyncThunk<any, never , { state: RootState, disp
 
 export const addBook = createAsyncThunk<any, any, {dispatch: AppDispatch }>('books/deleteBook', async (payload, { dispatch }) => {
     await axios.post(`/books`, payload).then(({ data }) => {
-        dispatch(getBook())
+      dispatch(getBook())
+      toast.success('success')
     }).catch(({ response }) => {
+      toast.error(response.data.errMessage)
         console.log(response?.data)
     })
 });

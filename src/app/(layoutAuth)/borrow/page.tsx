@@ -88,7 +88,7 @@ export default function UserBorrowPage() {
                         {borrowing.source.map((item: any, i) => (
                             <tr key={i} className='w-full text-white space-x-20 border-b border-[#979797]'>
                                 <td className=' px-4 text-lg font-normal max-w-sm  '>
-                                    {item.book.judul}
+                                    {item.book?.judul || ""}
                                 </td>
                                 <td className=' text-lg font-normal '>
                                     {item.borrowDate}

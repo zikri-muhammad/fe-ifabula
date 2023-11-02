@@ -45,9 +45,12 @@ export const deleteBorriwing = createAsyncThunk<any, never , { state: RootState,
 
 export const addBorrowing = createAsyncThunk<any, any, {dispatch: AppDispatch }>('books/deleteBook', async (payload, { dispatch }) => {
     await axios.post(`/borrowings`, payload).then(({ data }) => {
+      
         dispatch(getBorrowings())
+        toast.success('success')
     }).catch(({ response }) => {
-        alert(response?.data.errMessage);
+        toast.error(response.data.errMessage)
+        // alert(response?.data.errMessage);
         console.log(response?.data)
     })
 });

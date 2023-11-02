@@ -3,6 +3,7 @@ import { CredentialsInterface } from "@/types/credential.interface";
 import { User, UserInitial } from "@/types/user.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import { AppDispatch } from "../store";
+import { toast } from "react-toastify";
 
 
 const userSlice = createSlice({
@@ -26,7 +27,7 @@ export const registerUser = (payload: CredentialsInterface) => {
         await axios.post("/register", payload).then(({ data }) => {
             resolve(data)
         }).catch(({ response }) => {
-            alert(response.data.message)
+            toast.error(response.data.message)
             reject(response.data.message)
         })
     })
@@ -36,7 +37,7 @@ export const loginUser = (payload: CredentialsInterface) => {
         await axios.post("/login", payload).then(({ data }) => {
             resolve(data)
         }).catch(({ response }) => {
-            alert(response.data.message)
+            toast.error(response.data.message)
             reject(response.data.message)
         })
     })
