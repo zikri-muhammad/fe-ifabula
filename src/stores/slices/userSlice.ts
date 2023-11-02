@@ -26,6 +26,7 @@ export const registerUser = (payload: CredentialsInterface) => {
     return new Promise(async (resolve, reject) => {
         await axios.post("/register", payload).then(({ data }) => {
             resolve(data)
+            toast.success('success login')
         }).catch(({ response }) => {
             toast.error(response.data.message)
             reject(response.data.message)
@@ -36,6 +37,8 @@ export const loginUser = (payload: CredentialsInterface) => {
     return new Promise(async (resolve, reject) => {
         await axios.post("/login", payload).then(({ data }) => {
             resolve(data)
+            toast.success('success login')
+          
         }).catch(({ response }) => {
             toast.error(response.data.message)
             reject(response.data.message)
@@ -44,7 +47,6 @@ export const loginUser = (payload: CredentialsInterface) => {
 }
 
 export const getUser = (token: any) => {
-
 
     return new Promise(async (resolve, reject) => {
         await axios.get("/me", {

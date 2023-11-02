@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import userSlice from "./slices/userSlice";
-import todoSlice from "./slices/todoSlice";
 import sidebarSlice from "./slices/sidebarSlice";
 import earningSlice from "./slices/earningSlice";
 import bookSlice from "./slices/bookSlice";
@@ -11,7 +10,6 @@ import profileSlice from "./slices/profileSlice";
 export const store = configureStore({
     reducer: {
         user: userSlice,
-        todo: todoSlice,
         sidebar: sidebarSlice,
         earning: earningSlice,
         books: bookSlice,

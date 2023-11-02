@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
 
@@ -27,11 +28,10 @@ export default function LoginPage() {
     function submitForm(e: any) {
         e && e.preventDefault()
         signIn("credentials", form).then((data: any) => {
-            if (data.ok) {
-                return router.replace("/")
-            } else {
-
-            }
+          if (data.ok) {
+            toast.success('success login')
+            return router.replace("/")
+          }
         })
     }
 
