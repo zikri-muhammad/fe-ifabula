@@ -1,5 +1,4 @@
 {
-  "/not-found": "app/not-found.js",
   "/auth/signin/page": "app/auth/signin/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/(layoutAuth)/borrow/page": "app/(layoutAuth)/borrow/page.js",

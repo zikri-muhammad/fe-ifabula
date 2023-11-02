@@ -9,7 +9,6 @@ import AdminLayout from "@/components/layouts/AdminLayout";
 import UserLayout from "@/components/layouts/UserLayout";
 import { useAppDispatch, useAppSelector } from "@/stores/hook";
 import { addBook, getBook } from "@/stores/slices/bookSlice";
-import { getTodos } from "@/stores/slices/todoSlice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
